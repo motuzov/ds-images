@@ -9,14 +9,15 @@ RUN apt-get update --yes && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 USER ${NB_UID}
-# Install Python 3 packages
-RUN pip install torch torchvision pyarrow pytorch-lightning optuna pytorch-forecasting && \
-    pip install -U pytest 
 
-RUN  mamba install --name base pycodestyle -y && \
+# Install dsml4s8e libs
+RUN  mamba install --name base pycodestyle gitpython papermill ipynbname dagster dagit -y && \
      mamba clean --all -f -y && \
      fix-permissions "${CONDA_DIR}" && \
      fix-permissions "/home/${NB_USER}"
+
+RUN pip install torch torchvision pyarrow pytorch-lightning optuna pytorch-forecasting && \
+    pip install -U pytest 
 
 USER ${NB_UID}
 
