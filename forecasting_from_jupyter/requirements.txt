@@ -1,0 +1,6 @@
+torch
+torchvision
+pyarrow
+pytorch-lightning
+optuna
+pytorch-forecasting
