@@ -4,7 +4,7 @@ Base image is jupyter/scipy-notebook [Jupyter Docker Stack](https://jupyter-dock
 
 ```
 # cp setup.sh work/
-docker run --rm --name ts -p 8889:8888 -v $(pwd):/home/jovyan/work dsml4s8e bash setup.sh
+docker run --rm --name ts -p 8889:8888 -v ${pwd}:/home/jovyan/work ts bash work/setup.sh
 ```
 
 
