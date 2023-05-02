@@ -10,12 +10,12 @@ RUN apt-get update --yes && \
 
 USER ${NB_UID}
 
-RUN  mamba install --name base black-jupyter pycodestyle -y && \
+RUN  mamba install --name base pycodestyle -y && \
      mamba clean --all -f -y && \
      fix-permissions "${CONDA_DIR}" && \
      fix-permissions "/home/${NB_USER}"
 
-RUN pip install black
+RUN pip install black jupyter-black
 
 COPY requirements.txt requirements.txt
 
