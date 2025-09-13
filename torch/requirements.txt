@@ -1,4 +1,6 @@
 pyarrow
+load-dotenv
+pytest
 polars
 tensorboard
 torchmetrics
